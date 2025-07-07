@@ -939,6 +939,12 @@ body {
   opacity: 1;
 }
 
+.card-avaliacao:not(.destaque) {
+  opacity: 0.3;
+  transform: scale(1);
+}
+
+
 
 .botoes-galeria {
   margin-top: 20px;
