@@ -1025,7 +1025,9 @@ body {
   object-fit: cover;
   height: 150px;
 }
-/*  rodapé*/
+/* ========================
+   RODAPÉ RESPONSIVO
+======================== */
 
 .rodape {
   background: #000;
@@ -1038,14 +1040,15 @@ body {
 .rodape-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-  gap: 30px;
   justify-content: space-between;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .rodape-coluna {
   flex: 1 1 250px;
+  min-width: 250px;
 }
 
 .rodape-coluna h3 {
@@ -1099,7 +1102,7 @@ body {
   margin-top: 5px;
 }
 
-/* WhatsApp fixo no canto inferior direito */
+/* Botão WhatsApp fixo */
 .whatsapp-fixo {
   position: fixed;
   bottom: 20px;
@@ -1111,90 +1114,25 @@ body {
   width: 60px;
   height: 60px;
 }
-.rodape {
-  background: #000;
-  color: #ffffff;
-  padding: 50px 20px 20px;
-  font-family: 'Open Sans', sans-serif;
-  position: relative;
+
+/* ===== RESPONSIVO PARA CELULARES ===== */
+@media (max-width: 768px) {
+  .rodape-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rodape-coluna {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .redes-sociais {
+    justify-content: center;
+  }
 }
 
-.rodape-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-  gap: 30px;
-  justify-content: space-between;
-}
-
-.rodape-coluna {
-  flex: 1 1 250px;
-}
-
-.rodape-coluna h3 {
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.rodape-coluna p,
-.rodape-coluna li {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.rodape-coluna ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-.rodape-coluna ul li::before {
-  content: "- ";
-}
-
-.redes-sociais {
-  margin-top: 10px;
-}
-
-.redes-sociais a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.redes-sociais img {
-  width: 24px;
-  height: 24px;
-  filter: invert(1); /* Deixa os ícones brancos */
-}
-
-.rodape-bottom {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid #444;
-  padding-top: 15px;
-  font-size: 13px;
-}
-
-.rodape-bottom a {
-  color: #fff;
-  text-decoration: underline;
-  display: inline-block;
-  margin-top: 5px;
-}
-
-/* WhatsApp fixo no canto inferior direito */
-.whatsapp-fixo {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-.whatsapp-fixo img {
-  width: 60px;
-  height: 60px;
-}
 
 /* politica de privacidade */
 
