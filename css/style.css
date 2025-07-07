@@ -593,20 +593,21 @@ header {
 }
 
 .fechar-modal {
-  position: absolute;
-  top: 90px;  /* Ajustei para 15px para que o "X" não fique tão no topo */
-  right: 10px;
-  font-size: 1.5rem;
+  position: absolute;  /* Fixa o botão na parte superior direita */
+  top: 10px;  /* Distância do topo */
+  right: 10px;  /* Distância da borda direita */
+  font-size: 1.5rem;  /* Tamanho da fonte */
   background: transparent;
   border: none;
-  color: #E10600;  /* Cor vermelha para o 'X' */
+  color: #E10600;  /* Cor vermelha */
   cursor: pointer;
-  z-index: 1001;  /* Garante que o botão fique na frente de outros elementos */
+  z-index: 1001;  /* Garantir que o botão fique acima de outros elementos */
 }
 
 .fechar-modal:hover {
-  opacity: 0.8;  /* Dá um efeito de opacidade ao passar o mouse */
+  opacity: 0.8;  /* Efeito de opacidade ao passar o mouse */
 }
+
 
 .btn-nova-reserva {
   background-color: var(--vermelho);
