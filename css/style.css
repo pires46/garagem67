@@ -924,17 +924,17 @@ body {
 }
 
 .card-avaliacao {
-  width: 160px;
-  height: 160px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   display: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .card-avaliacao.destaque {
-  transform: scale(1.4);
+  transform: scale(1.6);
   z-index: 2;
   opacity: 1;
 }
@@ -943,6 +943,7 @@ body {
   opacity: 0.3;
   transform: scale(1);
 }
+
 
 
 
