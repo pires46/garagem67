@@ -744,44 +744,59 @@ header {
   cursor: not-allowed;
 }
 
-.carrossel-slide {
+/* Carrossel de Imagens */
+.carrossel-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* mantém a proporção responsiva */
+  max-width: 100%;  /* Garante que o carrossel ocupe toda a largura da tela */
   overflow: hidden;
 }
 
-.carrossel-slide img {
+.carrossel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* mantém a imagem ajustada sem distorcer */
-  display: block;
 }
 
-
-.carrossel-botao-centro {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+.carrossel-slide {
+  min-width: 100%;  /* Cada slide ocupará 100% da largura do contêiner */
+  height: auto;  /* A altura será ajustada proporcionalmente */
 }
 
-.carrossel-botao-centro a {
-  background-color: #E10600;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  transition: background 0.3s;
+/* Carrossel de Imagens */
+/* Carrossel de Imagens */
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;  /* O carrossel ocupará 100% da largura da tela */
+  overflow: hidden;  /* Esconde qualquer parte da imagem que ultrapasse a área visível */
 }
 
-.carrossel-botao-centro a:hover {
-  background-color: #b30000;
+.carrossel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
+
+.carrossel-slide {
+  flex: 0 0 100%;  /* Cada slide ocupará 100% da largura do contêiner */
+  height: 100%;  /* A altura será ajustada com base no contêiner */
+}
+
+.carrossel-slide img {
+  width: 100%;  /* A imagem ocupará 100% da largura do slide */
+  height: auto;  /* A altura será ajustada automaticamente para manter a proporção */
+  object-fit: cover;  /* Garante que a imagem cubra a área disponível sem distorções */
+}
+
+@media (max-width: 768px) {
+  .carrossel-slide img {
+    width: 100%;  /* Garante que a imagem ocupe toda a largura */
+    height: auto;  /* Ajusta a altura automaticamente */
+    object-fit: contain;  /* Ajusta a imagem sem cortá-la */
+  }
+}
+
 
 /* Bolinhas de navegação */
 .carrossel-dots {
@@ -805,7 +820,18 @@ header {
 
 .carrossel-dots button.ativo,
 .carrossel-dots button:hover {
-  background-color: #E10600; /* Vermelho vivo */
+  background-color: #E10600;  /* Vermelho vivo */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .carrossel-container {
+    max-width: 100%;  /* Remove o limite de largura em telas pequenas */
+  }
+
+  .carrossel-slide img {
+    object-fit: contain;  /* Ajusta a imagem sem cortá-la */
+  }
 }
 
 
