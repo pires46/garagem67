@@ -114,6 +114,68 @@
 
 <!-- Seção de Avaliações -->
 
+<!-- AVALIAÇÕES DE CLIENTES -->
+<section class="carrossel-imagens">
+  <h2>Avaliações de Clientes</h2>
+
+  <div class="imagens-container" id="galeriaAvaliacoes">
+    <img class="card-avaliacao" src="imagens/logo.jpeg" alt="Avaliação 1" onclick="ampliarImagem(this)">
+    <img class="card-avaliacao" src="imagens/logo.png" alt="Avaliação 2" onclick="ampliarImagem(this)">
+    <img class="card-avaliacao" src="imagens/logo.jpeg" alt="Avaliação 3" onclick="ampliarImagem(this)">
+    <img class="card-avaliacao" src="imagens/logo.png" alt="Avaliação 4" onclick="ampliarImagem(this)">
+  </div>
+
+  <div class="botoes-galeria">
+    <button onclick="moverGaleria(-1)">❮</button>
+    <button onclick="moverGaleria(1)">❯</button>
+  </div>
+
+  <!-- Modal imagem ampliada -->
+  <div class="modal-imagem" id="modalImagem">
+    <button class="fechar-modal-img" onclick="fecharModal()">×</button>
+    <img id="imagemAmpliada" src="">
+  </div>
+</section>
+
+<!-- JAVASCRIPT embutido -->
+<script>
+  let indiceAtual = 0;
+
+  function mostrarAvaliacoes() {
+    const container = document.getElementById("galeriaAvaliacoes");
+    const cards = container.querySelectorAll(".card-avaliacao");
+    const total = cards.length;
+
+    cards.forEach((card, i) => {
+      card.style.display = "none";
+      card.classList.remove("destaque");
+    });
+
+    for (let i = 0; i < 3; i++) {
+      const index = (indiceAtual + i) % total;
+      cards[index].style.display = "block";
+      if (i === 0) cards[index].classList.add("destaque");
+    }
+  }
+
+  function moverGaleria(direcao) {
+    const container = document.getElementById("galeriaAvaliacoes");
+    const total = container.querySelectorAll(".card-avaliacao").length;
+    indiceAtual = (indiceAtual + direcao + total) % total;
+    mostrarAvaliacoes();
+  }
+
+  function ampliarImagem(img) {
+    document.getElementById("imagemAmpliada").src = img.src;
+    document.getElementById("modalImagem").style.display = "flex";
+  }
+
+  function fecharModal() {
+    document.getElementById("modalImagem").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", mostrarAvaliacoes);
+</script>
 
     <section class="estrutura">
   <div class="estrutura-conteudo">
