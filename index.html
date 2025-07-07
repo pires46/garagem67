@@ -90,23 +90,56 @@
   </header>
 
   <main>
-  <!-- Carrossel de Imagens -->
+ <!-- ... todo seu HTML acima -->
+
+<!-- Carrossel -->
 <div class="carrossel">
   <div class="slides" id="slides">
-    <div class="slide"><img src="imagens/banner1.png" alt="Banner 1"></div>
-    <div class="slide"><img src="imagens/logo.png" alt="Banner 2"></div>
-    <div class="slide"><img src="imagens/logo.jpeg" alt="Banner 3"></div>
+    <div class="slide"><img src="imagens/banner1.jpg" alt="Banner 1"></div>
+    <div class="slide"><img src="imagens/banner2.jpg" alt="Banner 2"></div>
+    <div class="slide"><img src="imagens/banner3.jpg" alt="Banner 3"></div>
   </div>
+  <div class="dots" id="dots"></div>
 </div>
 
+<!-- 🔽 JavaScript aqui -->
+<script>
+  const slides = document.getElementById("slides");
+  const totalSlides = slides.children.length;
+  const dotsContainer = document.getElementById("dots");
 
-  <!-- Bolinhas de navegação -->
-  <div class="carrossel-dots" id="carrosselDots">
-    <button onclick="irParaSlide(0)" class="ativo"></button>
-    <button onclick="irParaSlide(1)"></button>
-    <button onclick="irParaSlide(2)"></button>
-  </div>
-</div>
+  let currentIndex = 0;
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function showSlide(index) {
+    currentIndex = index;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.children;
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].classList.remove("active");
+    }
+    dots[currentIndex].classList.add("active");
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }, 5000);
+
+  showSlide(currentIndex);
+</script>
+
+</body>
+</html>
 
 </div>
 <!-- Seção de Destaque -->
