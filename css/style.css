@@ -132,7 +132,7 @@ header {
 
 /* MENU no canto direito */
 .menu-topo.direita a {
-  color: white;
+  color: rgb(197, 0, 0);
   text-decoration: none;
   margin-left: 80px;
   font-family: 'Open Sans', sans-serif;
