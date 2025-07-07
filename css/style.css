@@ -586,7 +586,7 @@ header {
 
 .fechar-modal {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 10px;
   font-size: 1.5rem;
   background: transparent;
