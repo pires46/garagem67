@@ -62,7 +62,7 @@ ul li button {
 
 /* Posiciona a logo fora da faixa preta */
 .logo {
-  height: 90px;
+  height: 100px;
   position: absolute;
   top: -20px;
   left: 30px;
