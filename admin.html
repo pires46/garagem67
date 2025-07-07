@@ -101,6 +101,17 @@
       color: white;
       font-weight: bold;
     }
+
+    .fechar-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      background: transparent;
+      border: none;
+      color: #E10600;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -121,6 +132,8 @@
 <!-- Modal -->
 <div class="modal" id="modalReserva">
   <div class="modal-content">
+    <!-- Botão para fechar o modal -->
+    <button class="fechar-modal" onclick="fecharModal()">×</button>
     <h3>Nova Reserva</h3>
     <label for="servico">Tipo de Lavagem:</label>
     <select id="servico">
@@ -234,7 +247,6 @@
       container.appendChild(btn);
     });
 
-    // Mostrar horários, esconder calendário e outros
     document.getElementById("calendario").style.display = "none";
     document.getElementById("horarios").style.display = "grid";
     document.getElementById("nomeCliente").style.display = "none";
@@ -297,10 +309,9 @@
   }
 
   function formatarDataBrasileira(dataISO) {
-  const partes = dataISO.split("-");
-  return `${partes[2]}/${partes[1]}/${partes[0]}`;
-}
-
+    const partes = dataISO.split("-");
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+  }
 
   function excluirReserva(index) {
     const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
@@ -324,7 +335,6 @@
     window.open(url, "_blank");
   }
 
-  // Inicializar
   carregarReservas();
 </script>
 
