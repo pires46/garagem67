@@ -115,65 +115,145 @@
 <!-- Seção de Avaliações -->
 
 <!-- AVALIAÇÕES DE CLIENTES -->
-<section class="carrossel-imagens">
+<section class="avaliacoes-section">
   <h2>Avaliações de Clientes</h2>
 
-  <div class="imagens-container" id="galeriaAvaliacoes">
-    <img class="card-avaliacao" src="imagens/logo.jpeg" alt="Avaliação 1" onclick="ampliarImagem(this)">
-    <img class="card-avaliacao" src="imagens/logo.png" alt="Avaliação 2" onclick="ampliarImagem(this)">
-    <img class="card-avaliacao" src="imagens/logo.jpeg" alt="Avaliação 3" onclick="ampliarImagem(this)">
-    <img class="card-avaliacao" src="imagens/logo.png" alt="Avaliação 4" onclick="ampliarImagem(this)">
+  <div class="avaliacoes-carrossel" id="carrosselAvaliacoes">
+    <img src="imagens/logo.jpeg" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 1">
+    <img src="imagens/logo.png" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 2">
+    <img src="imagens/logo.jpeg" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 3">
+    <img src="imagens/logo.png" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 4">
   </div>
 
   <div class="botoes-galeria">
-    <button onclick="moverGaleria(-1)">❮</button>
-    <button onclick="moverGaleria(1)">❯</button>
+    <button onclick="moverCarrossel(-1)">❮</button>
+    <button onclick="moverCarrossel(1)">❯</button>
   </div>
 
-  <!-- Modal imagem ampliada -->
-  <div class="modal-imagem" id="modalImagem">
-    <button class="fechar-modal-img" onclick="fecharModal()">×</button>
+  <div class="modal-imagem" id="modalImagem" onclick="fecharModal()">
+    <span class="fechar-modal" onclick="fecharModal(event)">✖</span>
     <img id="imagemAmpliada" src="">
   </div>
 </section>
 
-<!-- JAVASCRIPT embutido -->
+<style>
+.avaliacoes-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.avaliacoes-carrossel {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 90%;
+}
+
+.card-avaliacao {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.6;
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+.card-avaliacao.ativo {
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 1;
+}
+
+.botoes-galeria {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botoes-galeria button {
+  background-color: #E10600;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal-imagem {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.modal-imagem img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.fechar-modal {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 10000;
+}
+</style>
+
 <script>
   let indiceAtual = 0;
 
   function mostrarAvaliacoes() {
-    const container = document.getElementById("galeriaAvaliacoes");
-    const cards = container.querySelectorAll(".card-avaliacao");
-    const total = cards.length;
+    const cards = document.querySelectorAll(".card-avaliacao");
+    cards.forEach(card => card.classList.remove("ativo"));
 
-    cards.forEach((card, i) => {
-      card.style.display = "none";
-      card.classList.remove("destaque");
-    });
+    // Pega os 3 atuais
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.display = "none";
+    }
 
     for (let i = 0; i < 3; i++) {
-      const index = (indiceAtual + i) % total;
-      cards[index].style.display = "block";
-      if (i === 0) cards[index].classList.add("destaque");
+      const pos = (indiceAtual + i) % cards.length;
+      cards[pos].style.display = "block";
+      if (i === 1) {
+        cards[pos].classList.add("ativo"); // o do meio fica maior
+      }
     }
   }
 
-  function moverGaleria(direcao) {
-    const container = document.getElementById("galeriaAvaliacoes");
-    const total = container.querySelectorAll(".card-avaliacao").length;
+  function moverCarrossel(direcao) {
+    const total = document.querySelectorAll(".card-avaliacao").length;
     indiceAtual = (indiceAtual + direcao + total) % total;
     mostrarAvaliacoes();
   }
 
   function ampliarImagem(img) {
-    document.getElementById("imagemAmpliada").src = img.src;
-    document.getElementById("modalImagem").style.display = "flex";
+    const modal = document.getElementById("modalImagem");
+    const imagem = document.getElementById("imagemAmpliada");
+    imagem.src = img.src;
+    modal.style.display = "flex";
   }
 
-  function fecharModal() {
+  function fecharModal(event) {
+    if (event) event.stopPropagation();
     document.getElementById("modalImagem").style.display = "none";
   }
 
+  // Inicializa ao carregar
   document.addEventListener("DOMContentLoaded", mostrarAvaliacoes);
 </script>
 
