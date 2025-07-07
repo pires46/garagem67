@@ -803,6 +803,8 @@ header {
   height: 100%;
   object-fit: cover;
   display: block;
+  object-position: center top;
+
 }
 
 /* Dots (bolinhas de navegação) */
