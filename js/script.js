@@ -1,4 +1,4 @@
-<script>
+
   let indiceAtual = 0;
 
   function mostrarAvaliacoes() {
@@ -28,5 +28,4 @@
   }
 
   document.addEventListener("DOMContentLoaded", mostrarAvaliacoes);
-</script>
 </body>
