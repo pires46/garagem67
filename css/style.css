@@ -591,12 +591,13 @@ header {
   font-size: 1.5rem;
   background: transparent;
   border: none;
-  color: #E10600;
+  color: #E10600;  /* Cor vermelha para o 'X' */
   cursor: pointer;
+  z-index: 1001;  /* Garante que o botão fique na frente de outros elementos */
 }
 
 .fechar-modal:hover {
-  opacity: 0.8;
+  opacity: 0.8;  /* Dá um efeito de opacidade ao passar o mouse */
 }
 
 .btn-nova-reserva {
