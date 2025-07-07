@@ -221,11 +221,12 @@ form button {
    SEÇÃO DE SERVIÇOS
 ======================== */
 .servicos-container {
-  padding: 40px 20px;
+  padding: 10px 20px 40px;
   background: var(--cinza-claro);
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
 
 .titulo-servicos {
   font-family: 'Montserrat', sans-serif;
