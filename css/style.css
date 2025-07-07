@@ -101,8 +101,28 @@ header {
 
 /* LOGO no canto esquerdo */
 .logo-bloco {
-  display: flex;
-  align-items: center;
+  position: relative;
+  display: inline-block;
+}
+
+.botao-logo {
+  position: absolute;
+  bottom: 0; /* ou use top: 50% para posicionar sobre a imagem */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E10600;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.botao-logo:hover {
+  background-color: #b30000;
 }
 
 .logo-nova {
