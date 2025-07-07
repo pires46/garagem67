@@ -221,6 +221,7 @@ form button {
    SEÇÃO DE SERVIÇOS
 ======================== */
 .servicos-container {
+   margin-top: 0;
   padding: 10px 20px 40px;
   background: var(--cinza-claro);
   text-align: center;
