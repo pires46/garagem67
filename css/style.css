@@ -982,6 +982,50 @@ body {
   max-height: 90%;
   border-radius: 10px;
 } */ 
+.galeria-wrapper {
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+  margin: 20px auto;
+}
+
+.imagens-container {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  gap: 10px;
+}
+
+.imagens-container img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.botoes-galeria {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.botoes-galeria button {
+  padding: 8px 14px;
+  margin: 0 5px;
+  font-size: 18px;
+  border: none;
+  background-color: #E10600;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botoes-galeria button:hover {
+  background-color: #b70000;
+}
+
+
+
 .estrutura {
   background: #ffffff;
   padding: 50px 20px;
