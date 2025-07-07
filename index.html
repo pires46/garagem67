@@ -232,7 +232,7 @@
       const pos = (indiceAtual + i) % cards.length;
       cards[pos].style.display = "block";
       if (i === 1) {
-        cards[pos].classList.add("ativo"); // o do meio em destaque
+        cards[pos].classList.add("ativo"); // destaca o card do meio
       }
     }
   }
@@ -256,7 +256,11 @@
   }
 
   document.addEventListener("DOMContentLoaded", mostrarAvaliacoes);
+
+  // ✅ autoplay a cada 3 segundos
+  let intervaloAutoPlay = setInterval(() => moverCarrossel(1), 3000);
 </script>
+
 
     <section class="estrutura">
   <div class="estrutura-conteudo">
