@@ -925,19 +925,20 @@ body {
 }
 
 .card-avaliacao {
-  width: 180px;
-  height: 180px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   display: none;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .card-avaliacao.destaque {
-  transform: scale(1.08);
+  transform: scale(1.1);
   z-index: 2;
 }
+
 
 .botoes-galeria {
   margin-top: 20px;
