@@ -746,6 +746,8 @@ header {
 
 .carrossel-slide {
   position: relative;
+  aspect-ratio: 16 / 9; /* ou 4 / 3, 1 / 1, etc */
+  overflow: hidden;
 }
 
 .carrossel-slide img {
@@ -754,6 +756,7 @@ header {
   object-fit: cover;
   display: block;
 }
+
 
 .carrossel-botao-centro {
   position: absolute;
