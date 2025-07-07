@@ -72,7 +72,7 @@ ul li button {
 /* Estilo do header adicional */
 header {
   background: var(--vermelho);
-  color: rgb(184, 0, 0);
+  color: white;
   padding: 1em;
   text-align: center;
 }
