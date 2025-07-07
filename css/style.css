@@ -82,7 +82,7 @@ header {
   margin-left: 30px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(233, 0, 0);
   font-weight: bold;
 }
 
@@ -180,7 +180,7 @@ footer {
   display: inline-block;
   padding: 12px 30px;
   background-color: var(--vermelho);
-  color: rgb(204, 0, 0);
+  color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   text-decoration: none;
