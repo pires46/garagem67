@@ -583,6 +583,14 @@ header {
 /* ========================
    BOTÃO NOVA RESERVA
 ======================== */
+.modal-content {
+  position: relative; /* Certifique-se que o modal tenha posição relativa */
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+}
 
 .fechar-modal {
   position: absolute;
