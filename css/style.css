@@ -112,7 +112,7 @@ header {
 }
 
 /* Nome centralizado (sobreposto no centro) */
-.nome-site-central {
+/* .nome-site-central {
   position: absolute;
   left: 0%;
   transform: translateX(-50%);
@@ -128,7 +128,7 @@ header {
 
 .parte2 {
   color: var(--dourado);
-}
+} */
 
 /* MENU no canto direito */
 .menu-topo.direita a {
