@@ -180,7 +180,7 @@ footer {
   display: inline-block;
   padding: 12px 30px;
   background-color: var(--vermelho);
-  color: white;
+  color: rgb(204, 0, 0);
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   text-decoration: none;
