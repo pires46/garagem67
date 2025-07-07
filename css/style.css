@@ -586,7 +586,7 @@ header {
 
 .fechar-modal {
   position: absolute;
-  top: 15px;  /* Ajustei para 15px para que o "X" não fique tão no topo */
+  top: 30px;  /* Ajustei para 15px para que o "X" não fique tão no topo */
   right: 10px;
   font-size: 1.5rem;
   background: transparent;
