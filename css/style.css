@@ -806,6 +806,9 @@ header {
   display: block;
 }
 
+.carrossel .slide:nth-child(3) img {
+  object-position: center -150px;
+}
 
 
 /* Dots (bolinhas de navegação) */
