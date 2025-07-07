@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garagem 67</title>
+  <link rel="icon" type="image/png" href="logo128fundo.png">
+
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+
+    .botao-servicos {
+      display: block;
+      margin: 30px auto;
+      background: #E10600;
+      color: rgb(255, 255, 255);
+      padding: 12px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      transition: background 0.3s;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .botao-servicos:hover {
+      background: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+  <header class="topo-site">
+    <a href="index.html">
+      <img src="imagens/logo.png" alt="Logo Garagem 67" class="logo">
+    </a>
+    <nav>
+      
+      <a href="index.html">Início</a>
+      <a href="servicos.html">Serviços</a>
+    </nav>
+  </header>
+
+  <main>
+ <!-- ... todo seu HTML acima -->
+
+<!-- Carrossel -->
+<div class="carrossel">
+  <div class="slides" id="slides">
+    <div class="slide"><img src="imagens/banner1.png" alt="Banner 1"></div>
+    <div class="slide"><img src="imagens/banner1.png" alt="Banner 2"></div>
+    <div class="slide"><img src="imagens/logo.jpeg" alt="Banner 3"></div>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- 🔽 JavaScript aqui -->
+<script>
+  const slides = document.getElementById("slides");
+  const totalSlides = slides.children.length;
+  const dotsContainer = document.getElementById("dots");
+
+  let currentIndex = 0;
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function showSlide(index) {
+    currentIndex = index;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.children;
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].classList.remove("active");
+    }
+    dots[currentIndex].classList.add("active");
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }, 5000);
+
+  showSlide(currentIndex);
+</script>
+
+</body>
+</html>
+
+</div>
+<!-- Seção de Destaque -->
+<section class="destaque">
+  <div class="conteudo-destaque">
+    <h2>POR QUE OFERECEMOS O MELHOR SERVIÇO PARA O SEU VEÍCULO ?</h2>
+    <p>
+      Estamos a mais de 8 anos cuidando dos veículos dos nossos clientes. Com profissionais qualificados no segmento, procuramos oferecer os melhores serviços, utilizando produtos de qualidade.
+    </p>
+    <p>
+      Somos apaixonados pelo que fazemos, e temos a experiência necessária para cuidar do seu veículo.
+    </p>
+    <a href="servicos.html" class="botao-destaque">Conheça os nossos serviços</a>
+  </div>
+</section>
+
+<!-- Seção de Avaliações -->
+
+<!-- AVALIAÇÕES DE CLIENTES -->
+<section class="avaliacoes-section">
+  <h2>Avaliações de Clientes</h2>
+
+  <div class="avaliacoes-carrossel" id="carrosselAvaliacoes">
+    <img src="imagens/logo.jpeg" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 1">
+    <img src="imagens/logo.png" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 2">
+    <img src="imagens/logo.jpeg" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 3">
+    <img src="imagens/logo.png" class="card-avaliacao" onclick="ampliarImagem(this)" alt="Avaliação 4">
+  </div>
+
+  <div class="botoes-galeria">
+    <button onclick="moverCarrossel(-1)">❮</button>
+    <button onclick="moverCarrossel(1)">❯</button>
+  </div>
+
+  <div class="modal-imagem" id="modalImagem" onclick="fecharModal()">
+    <span class="fechar-modal" onclick="fecharModal(event)">✖</span>
+    <img id="imagemAmpliada" src="">
+  </div>
+</section>
+
+<style>
+.avaliacoes-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.avaliacoes-carrossel {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 100%;
+  position: relative;
+}
+
+.card-avaliacao {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 -30px;
+  border-radius: 10px;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: 1;
+}
+
+.card-avaliacao.ativo {
+  transform: scale(1.3);
+  opacity: 1;
+  z-index: 3;
+}
+
+.botoes-galeria {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botoes-galeria button {
+  background-color: #E10600;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal-imagem {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.modal-imagem img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.fechar-modal {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 10000;
+}
+</style>
+
+<script>
+  let indiceAtual = 0;
+
+  function mostrarAvaliacoes() {
+    const cards = document.querySelectorAll(".card-avaliacao");
+    cards.forEach(card => {
+      card.classList.remove("ativo");
+      card.style.display = "none";
+    });
+
+    for (let i = 0; i < 3; i++) {
+      const pos = (indiceAtual + i) % cards.length;
+      cards[pos].style.display = "block";
+      if (i === 1) {
+        cards[pos].classList.add("ativo"); // destaca o card do meio
+      }
+    }
+  }
+
+  function moverCarrossel(direcao) {
+    const total = document.querySelectorAll(".card-avaliacao").length;
+    indiceAtual = (indiceAtual + direcao + total) % total;
+    mostrarAvaliacoes();
+  }
+
+  function ampliarImagem(img) {
+    const modal = document.getElementById("modalImagem");
+    const imagem = document.getElementById("imagemAmpliada");
+    imagem.src = img.src;
+    modal.style.display = "flex";
+  }
+
+  function fecharModal(event) {
+    if (event) event.stopPropagation();
+    document.getElementById("modalImagem").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", mostrarAvaliacoes);
+
+  // ✅ autoplay a cada 3 segundos
+  let intervaloAutoPlay = setInterval(() => moverCarrossel(1), 3000);
+</script>
+
+ <!-- Estrutura do local -->
+
+    <section class="estrutura">
+  <div class="estrutura-conteudo">
+    <div class="estrutura-texto">
+      <h2><strong>CONHEÇA A<br>NOSSA ESTRUTURA</strong></h2>
+      <div class="barra-vermelha"></div>
+      <p>
+        A Garagem 67 é a maior estética automotiva da região. Com ótima localização, é um lugar completo para seu veículo ficar novo e lindo novamente!
+      </p>
+      <p>
+        Sempre buscando conforto e qualidade para nossos clientes. Somos a estética automotiva que você procura! Venha nos conhecer!
+      </p>
+      <a class="botao-mapa" href="https://www.google.com/maps?q=Garagem+67" target="_blank">📍 Saiba como chegar</a>
+    </div>
+    <div class="estrutura-imagens">
+      <img src="imagens/logo.jpeg" alt="Foto 1 da estrutura" />
+      <img src="imagens/logo.jpeg" alt="Foto 2 da estrutura" />
+      <img src="imagens/logo.jpeg" alt="Foto 3 da estrutura" />
+      <img src="imagens/logo.jpeg" alt="Foto 4 da estrutura" />
+    </div>
+  </div>
+</section>
+
+<!-- Botão para Serviços -->
+    <a class="botao-servicos" href="servicos.html">Ver Serviços</a>
+
+
+  </main>
+
+  <!-- <footer>
+    <p>&copy; 2025 Garagem67. Todos os direitos reservados.</p>
+  </footer> -->
+  <script>
+  let slideIndex = 0;
+
+  function mostrarSlide(index) {
+    const slides = document.getElementById('carrosselSlides');
+    const dots = document.querySelectorAll('.carrossel-dots button');
+    const totalSlides = slides.children.length;
+
+    slideIndex = (index + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('ativo', i === slideIndex);
+    });
+  }
+
+  function irParaSlide(n) {
+    mostrarSlide(n);
+  }
+
+  setInterval(() => {
+    mostrarSlide(slideIndex + 1);
+  }, 5000);
+</script>
+
+<!-- rodapé -->
+<footer class="rodape">
+  <div class="rodape-container">
+    <div class="rodape-coluna">
+      <h3>VOLTE SEMPRE !</h3>
+      <p>Agradecemos a sua visita em nosso site.<br>
+        Em caso de dúvidas, entre em contato conosco. Teremos prazer em atendê-los.
+      </p>
+      <p>embreve.garege67@gmail.com<br>
+        (11) 972386622
+      </p>
+    </div>
+
+    <div class="servicos-bloco">
+  <h3>NOSSOS SERVIÇOS</h3>
+  <div class="servico-item">- Lavagem Simples e Detalhada</div>
+  <div class="servico-item">- Higienização Interna</div>
+  <!-- <div class="servico-item">- Polimento Técnico</div> -->
+  <!-- <div class="servico-item">- Polimento de Faróis</div> -->
+  <div class="servico-item">- Hidratação de Bancos</div>
+  <!-- <div class="servico-item">- Cristalização</div> -->
+  <div class="servico-item">- Vitrificação</div>
+  <div class="servico-item">- Lavagem de Motor</div>
+  <div class="servico-item">- Instalação de Insulfilm</div>
+  
+</div>
+
+
+    <div class="rodape-coluna">
+      <h3>ENCONTRE-NOS</h3>
+      <p><strong>Garagem67:</strong><br>
+      Em Breve!<br>
+       <p><strong> Redes Sociais</strong><br>
+  
+      
+      <div class="redes-sociais">
+
+        <a href="#"><img src="imagens/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="imagens/local.svg" alt="Localização"></a>
+        <a href="#"><img src="imagens/local.svg" alt="E-mail"></a>
+      </div>
+      <div class="rodape-bottom">
+    <p>© 2025 Garagem67<br>
+      CNPJ -000.000.000.000</p>
+    <a href="politica.html" class="botao-politica">Política de Privacidade</a>
+  </div>
+    </div>
+  </div>
+
+  
+
+  <a href="https://wa.me/5511972386622" class="whatsapp-fixo" target="_blank">
+    <img src="imagens/WhatsApp.svg" alt="WhatsApp">
+  </a>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("active");
+  }
+</script>
+<script>
+let posicaoAtual = 0;
+
+function moverGaleria(direcao) {
+  const container = document.getElementById('galeriaAvaliacoes');
+  const larguraItem = container.querySelector('img').offsetWidth + 10; // largura + gap
+  const totalItens = container.querySelectorAll('img').length;
+  const visiveis = window.innerWidth < 768 ? 1 : 2;
+  const maxPosicao = totalItens - visiveis;
+
+  posicaoAtual += direcao;
+
+  if (posicaoAtual < 0) posicaoAtual = 0;
+  if (posicaoAtual > maxPosicao) posicaoAtual = maxPosicao;
+
+  const deslocamento = -posicaoAtual * larguraItem;
+  container.style.transform = `translateX(${deslocamento}px)`;
+}
+
+// Modal para ampliar imagem
+function ampliarImagem(img) {
+  const modal = document.getElementById('modalImagem');
+  const imgAmpliada = document.getElementById('imagemAmpliada');
+  imgAmpliada.src = img.src;
+  modal.style.display = 'flex';
+}
+
+function fecharModal() {
+  document.getElementById('modalImagem').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
