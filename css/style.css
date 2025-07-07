@@ -105,10 +105,10 @@ header {
   align-items: center;
 }
 
-/* .logo-nova {
-  height: 60px;
+.logo-nova {
+  height: 20px;
   object-fit: contain;
-} */
+}
 
 /* Nome centralizado (sobreposto no centro) */
 .nome-site-central {
