@@ -925,7 +925,7 @@ body {
 
 .card-avaliacao {
   width: 400px;
-  height: 240px;
+  height: 440px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
