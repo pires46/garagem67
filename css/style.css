@@ -924,18 +924,19 @@ body {
 }
 
 .card-avaliacao {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .card-avaliacao.destaque {
-  transform: scale(1.1);
+  transform: scale(1.4);
   z-index: 2;
+  opacity: 1;
 }
 
 
