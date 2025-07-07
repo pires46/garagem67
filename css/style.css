@@ -804,7 +804,9 @@ header {
   object-fit: cover;
   object-position: center -100px;
   display: block;
-  
+}
+
+
 
 /* Dots (bolinhas de navegação) */
 .carrossel .dots {
