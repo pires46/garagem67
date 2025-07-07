@@ -583,6 +583,22 @@ header {
 /* ========================
    BOTÃO NOVA RESERVA
 ======================== */
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #E10600;
+  cursor: pointer;
+}
+
+.fechar-modal:hover {
+  opacity: 0.8;
+}
+
 .btn-nova-reserva {
   background-color: var(--vermelho);
   color: var(--branco);
