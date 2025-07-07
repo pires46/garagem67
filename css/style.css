@@ -909,6 +909,87 @@ body {
   font-size: 16px;
 }
 
+.carrossel-imagens {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.imagens-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  transition: all 0.5s ease;
+}
+
+.card-avaliacao {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: none;
+  transition: transform 0.4s ease;
+}
+
+.card-avaliacao.destaque {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.botoes-galeria {
+  margin-top: 20px;
+}
+
+.botoes-galeria button {
+  background-color: #E10600;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  margin: 0 5px;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botoes-galeria button:hover {
+  background-color: #c00000;
+}
+
+/* Modal */
+.modal-imagem {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.modal-imagem img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+}
+
+.fechar-modal-img {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
 
 .estrutura {
   background: #ffffff;
