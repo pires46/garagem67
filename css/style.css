@@ -99,18 +99,29 @@ header {
   padding: 0 40px;
 }
 
-/* LOGO no canto esquerdo */
 .logo-bloco {
-  display: flex;
-  align-items: center;
+  position: relative;
+  display: inline-block;
 }
 
-.logo-nova {
-  height: 120px;
+.botao-logo {
   position: absolute;
-  top: -20px;
-  left: 30px;
-  z-index: 10;
+  bottom: 0; /* ou use top: 50% para posicionar sobre a imagem */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E10600;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.botao-logo:hover {
+  background-color: #b30000;
 }
 
 /* Nome centralizado (sobreposto no centro) */
