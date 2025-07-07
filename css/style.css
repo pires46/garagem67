@@ -586,12 +586,12 @@ header {
 
 .fechar-modal {
   position: absolute;
-  top: 10px;
+  top: 15px;  /* Ajustei para 15px para que o "X" não fique tão no topo */
   right: 10px;
   font-size: 1.5rem;
   background: transparent;
   border: none;
-  color: #000000;  /* Cor vermelha para o 'X' */
+  color: #E10600;  /* Cor vermelha para o 'X' */
   cursor: pointer;
   z-index: 1001;  /* Garante que o botão fique na frente de outros elementos */
 }
